@@ -6,7 +6,7 @@ function App () {
 
   return (
     <div>
-      Is this working
+      Client and Server Setup is working :)
     </div>
   );
 
