@@ -6,7 +6,7 @@ const path = require('path');
 const port = 3000;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname + '/../src')));
+app.use(express.static(path.join(__dirname + '/../src/dist')));
 
 app.get('/', (req, res) => res.send('Hello World'));
 

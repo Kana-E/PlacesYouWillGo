@@ -15,6 +15,9 @@ module.exports = {
       'jsx': true
     }
   },
+  plugins: [
+    'react-hooks'
+  ],
   rules: {
     /* Indentation */
     'no-mixed-spaces-and-tabs': 2,
@@ -43,6 +46,8 @@ module.exports = {
     'no-use-before-define': [2, { 'functions': false }],
     /* Minuta */
     'comma-style': [2, 'last'],
-    'quotes': [1, 'single']
+    'quotes': [1, 'single'],
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn' // Checks effect dependencies
   }
 };

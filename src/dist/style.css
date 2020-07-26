@@ -1,0 +1,16 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: khaki;
+
+}
+
+div.menu {
+  display: flex;
+  justify-content: space-around;
+  background-color: mistyrose;
+}
+
+
+/* .Map {
+  color: aquamarine;
+} */
