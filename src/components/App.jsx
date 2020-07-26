@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MapChart from './MapChart.jsx';
 import Plans from './Plans.jsx';
+import Itineraries from './Itineraries.jsx';
 import Memories from './Memories.jsx';
 
 function usePageStatus (clickedPage) {
@@ -8,7 +9,12 @@ function usePageStatus (clickedPage) {
 
 
   if (clickedPage === 'plans') {
-    return <Plans/>;
+    return (
+      <div>
+        <Plans/>
+        <Itineraries/>
+      </div>
+    );
   } else if (clickedPage === 'memories') {
     return <Memories />;
   } else if (clickedPage === 'top') {
@@ -34,7 +40,6 @@ function App () {
       </div>
       <div>
         {usePageStatus(page)}
-        Client and Server Setup is working :)
       </div>
     </div>
   );
