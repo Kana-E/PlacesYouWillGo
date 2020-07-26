@@ -8,3 +8,6 @@ node_modules/
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 bundle.js
+
+# config
+database/config.json
