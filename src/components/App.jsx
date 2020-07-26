@@ -27,10 +27,6 @@ function App () {
 
   const [page, setPage] = useState('top');
 
-
-
-
-
   return (
     <div>
       <div className='menu'>

@@ -25,7 +25,11 @@ Plans.init({
     type: Sequelize.STRING,
     allowNull: true
   },
-  destination: {
+  start: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
+  end: {
     type: Sequelize.STRING,
     allowNull: true
   },
@@ -40,5 +44,14 @@ Plans.sync()
   .catch( err => console.error(err));
 
 
+var postTrip = (req, res) => {
+  var plans = req.body;
+  console.log(plans.destination.toString())
+  Plans.create({destination: plans.destination.toString(), start: plans.start.toString(), end: plans.end.toString()})
+    .then( () => res.end )
+    .catch( err => console.error(err));
+};
+
 module.exports.sequelize = sequelize;
 module.exports.Plans = Plans;
+module.exports.postTrip = postTrip;
