@@ -39,7 +39,7 @@ function Itineraries () {
         // consol?e.log(list)
       })
       .catch(error => console.log(error));
-  }, [] );
+  }, [list] );
 
 
   function handleDelete(e){
