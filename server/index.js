@@ -11,7 +11,8 @@ app.use(express.static(path.join(__dirname + '/../src/dist')));
 app.use(bodyParser.json());
 
 
-const query = require('../database/index.js');
+const query = require('../database/queries.js');
+app.get('/plans', query.getTrip);
 app.post('/plans', query.postTrip);
 
 app.listen(port, () => console.log(`App listening on port ${port}`));

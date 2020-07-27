@@ -15,20 +15,15 @@ const Form = styled.div`
 function Plans () {
 
   const [destination, setDestination] = useState('');
-  // console.log(destination)
   const [start, setStart] = useState('');
-  // console.log(start)
   const [end, setEnd] = useState('');
-  // console.log(end);
 
-  // useEffect( () => {
-    function handleSubmit (evt) {
-      evt.preventDefault();
-      axios.post('/plans', { destination: destination, start: start, end: end })
-        .then(result => console.log(result))
-        .catch( error => console.error(error));
-    }
-  // });
+  function handleSubmit (evt) {
+    evt.preventDefault();
+    axios.post('/plans', { destination: destination, start: start, end: end })
+      .then(result => console.log(result))
+      .catch( error => console.error(error));
+  }
 
   return (
     <div>
