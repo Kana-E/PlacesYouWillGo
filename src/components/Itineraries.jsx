@@ -5,27 +5,46 @@ import axios from 'axios';
 const Container = styled.div`
   border: solid 0.5px;
   border-color: lightsteelblue;
+  -webkit-font-smoothing: antialiased;
 `;
 
 const Item = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 24% 24% 4% 24% 24%;
   border-top: solid 0.5px;
   border-color: lightsteelblue;
+  -webkit-font-smoothing: antialiased;
 `;
 
 const Destination = styled.div`
   background-color: teal;
+  justify-content: center;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
 `;
 const Start = styled.div`
   background-color: green;
+  justify-content: center;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
 `;
+const Mid = styled.div`
+  background-color: teal;
+  justify-content: center;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+`;
+
 const End = styled.div`
   background-color: pink;
+  justify-content: center;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
 `;
 const Button = styled.button`
   background-color: blue;
+  color: lightskyblue;
+  -webkit-font-smoothing: antialiased;
 `;
 
 
@@ -67,6 +86,7 @@ function Itineraries () {
                 <Start key={item.start}>
                   {item.start}
                 </Start>
+                <Mid>to</Mid>
                 <End key={item.end}>
                   {item.end}
                 </End>
