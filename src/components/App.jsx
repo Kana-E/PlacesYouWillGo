@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MapChart from './MapChart.jsx';
 import Plans from './Plans.jsx';
+import GoogleMap from './colorMap.jsx';
 import Itineraries from './Itineraries.jsx';
 import Memories from './Memories.jsx';
 
@@ -18,7 +19,7 @@ function usePageStatus (clickedPage) {
   } else if (clickedPage === 'memories') {
     return <Memories />;
   } else if (clickedPage === 'top') {
-    return <MapChart />;
+    return <GoogleMap />;
   }
 
 }
