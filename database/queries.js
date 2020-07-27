@@ -19,5 +19,17 @@ var postTrip = (req, res) => {
     .catch( err => console.error(err));
 };
 
+var deleteTrip = (req, res) => {
+  var toDelete = req.body;
+  sequelize.Plans.destroy({
+    where: { id: toDelete.id }
+  })
+    .then(deletedPlan => console.log(`success = 1 , fail = 0: ${deletedPlan}`))
+    .then(() => sequelize.Plans.findAll() )
+    .then(result => res.send(result))
+    .catch(err => console.err(error));
+};
+
 module.exports.postTrip = postTrip;
 module.exports.getTrip = getTrip;
+module.exports.deleteTrip = deleteTrip;

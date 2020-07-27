@@ -1,5 +1,5 @@
 import React from 'react';
-import googlemaps from './module.js';
+// import googlemaps from './module.js';
 
 function GoogleMap() {
 
@@ -14,17 +14,19 @@ function GoogleMap() {
 
   function drawRegionsMap() {
     var data = google.visualization.arrayToDataTable([
-      ['Country', 'Popularity'],
+      ['Country', 'HaveBeen'],
       ['Germany', 100],
-      ['United States', 300],
-      ['Brazil', 400],
-      ['Canada', 500],
-      ['France', 600],
-      ['RU', 700],
-      ['Japan', 200]
+      ['United States', 100],
+      ['Brazil', 0],
+      ['Canada', 100],
+      ['France', 100],
+      ['RU', 100],
+      ['Japan', 100]
     ]);
 
-    var options = {};
+    var options = {
+      colorAxis: {colors: ['palevioletred', 'royalblue', 'mediumseagreen']},
+    };
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 

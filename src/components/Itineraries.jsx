@@ -32,6 +32,27 @@ const Button = styled.button`
 function Itineraries () {
   const [list, setList] = useState([]);
 
+  useEffect( () => {
+    axios.get('/plans')
+      .then( result => {
+        setList(result.data);
+        // consol?e.log(list)
+      })
+      .catch(error => console.log(error));
+  }, [] );
+
+
+  function handleDelete(e){
+    console.log('clicked');
+    var id = e.target.value;
+    console.log(id)
+    axios.patch('/plans', {id: id})
+      .then(result => {
+        setList(result.data)
+      })
+      .catch(error => console.log(error));
+  }
+
   function getList() {
     return (
       <div>
@@ -49,7 +70,7 @@ function Itineraries () {
                 <End key={item.end}>
                   {item.end}
                 </End>
-                <Button > x Delete</Button>
+                <Button value={item.id} onClick={handleDelete}> x Delete</Button>
               </Item>
             ))}
           </div>
@@ -57,16 +78,6 @@ function Itineraries () {
       </div>
     );
   }
-
-  useEffect( () => {
-    axios.get('/plans')
-      .then( result => {
-        setList(result.data);
-        // consol?e.log(list)
-      })
-      .catch(error => console.log(error));
-  }, [] );
-
 
   return (
     <div>
