@@ -20,3 +20,14 @@ div.menu {
   width: 1000px;
 }
 
+div.past{
+  display: flex;
+  flex-flow: row;
+  align-items: baseline;
+  padding-left: 5%;
+}
+
+p {
+  font-family: 'Exo 2', sans-serif;
+  margin-right: 1%;
+}

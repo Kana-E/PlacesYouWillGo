@@ -7,6 +7,14 @@ const Attraction = styled.div`
   background-color: lightblue;
   width: 1000px;
 `;
+const Name = styled.div`
+  background-color: lightblue;
+  width: 1000px;
+`;
+const Desc = styled.div`
+  background-color: lightblue;
+  width: 1000px;
+`;
 
 const Image = styled.div`
   background-color: lightblue;
@@ -69,8 +77,12 @@ function Flights(props) {
 
     return (
       <Attraction>
-        {attractions[0][0]}
-        {attractions[0][1]}
+        <Name>
+          {attractions[0][0]}
+        </Name>
+        <Desc>
+          {attractions[0][1]}
+        </Desc>
         <Image> <img src={attractions[0][2]} />
         </Image>
       </Attraction>

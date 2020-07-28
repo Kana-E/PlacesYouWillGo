@@ -34,7 +34,7 @@ function usePageStatus (clickedPage) {
     return <Memories />;
   } else if (clickedPage === 'top') {
     return (
-      <div>
+      <div className='past'>
         <p>I have been to...</p>
         <form>
           <input type='text' placeholder='Country?'
@@ -57,9 +57,9 @@ function App () {
   return (
     <Top>
       <div className='menu'>
-        <div onClick={() => setPage('top')}>Top</div>
+        <div onClick={() => setPage('top')}>Travel Map</div>
         <div onClick={() => setPage('plans')}>Plans</div>
-        <div onClick={() => setPage('memories')}>Memories</div>
+        {/* <div onClick={() => setPage('memories')}>Memories</div> */}
       </div>
       <div>
         {usePageStatus(page)}
