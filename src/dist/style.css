@@ -1,22 +1,22 @@
+body {
+  background-color: #91bea5;
+  flex-flow: column;
+  display: flex;
+  align-items: center;
+}
+
 h1 {
   font-family: 'Exo 2', sans-serif;
   background-color: #b7e3e4;
   width: 1000px;
-
+  text-align: center;
 }
 
 div.menu {
+  font-family: 'Exo 2', sans-serif;
   display: flex;
   justify-content: space-around;
   background-color: mistyrose;
   width: 1000px;
 }
 
-#regions_div {
-  margin-top: 10%;
-}
-
-
-/* .Map {
-  color: aquamarine;
-} */

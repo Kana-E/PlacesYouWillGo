@@ -4,6 +4,11 @@ import Plans from './Plans.jsx';
 import GoogleMap from './colorMap.jsx';
 import Itineraries from './Itineraries.jsx';
 import Memories from './Memories.jsx';
+import styled from 'styled-components';
+
+const Top = styled.div`
+  background-color: #91bea5;
+`;
 
 function usePageStatus (clickedPage) {
   // const pageStatus = usePageStatus(clickedPage);
@@ -19,7 +24,9 @@ function usePageStatus (clickedPage) {
   } else if (clickedPage === 'memories') {
     return <Memories />;
   } else if (clickedPage === 'top') {
-    return <GoogleMap />;
+    return (
+      <GoogleMap />
+    );
   }
 
 }
@@ -29,7 +36,7 @@ function App () {
   const [page, setPage] = useState('top');
 
   return (
-    <div>
+    <Top>
       <div className='menu'>
         <div onClick={() => setPage('top')}>Top</div>
         <div onClick={() => setPage('plans')}>Plans</div>
@@ -38,7 +45,7 @@ function App () {
       <div>
         {usePageStatus(page)}
       </div>
-    </div>
+    </Top>
   );
 
 }

@@ -1,7 +1,10 @@
 import React from 'react';
 // import googlemaps from './module.js';
+import styled from 'styled-components';
 
 function GoogleMap() {
+
+  // const[data, setData] = useData([]);
 
   google.charts.load( 'current', {
     'packages':['geochart'],
@@ -26,6 +29,7 @@ function GoogleMap() {
 
     var options = {
       colorAxis: {colors: ['palevioletred', 'royalblue', 'mediumseagreen']},
+
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

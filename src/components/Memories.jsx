@@ -3,7 +3,11 @@ import React from 'react';
 function Memories () {
 
   return (
-    <div>Memoryyyy</div>
+    <div>
+      <div>Memoryyyy</div>
+      <button>Post</button>
+    </div>
+
   );
 }
 
