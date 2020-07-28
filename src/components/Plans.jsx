@@ -21,7 +21,7 @@ const Button = styled.button`
 `;
 
 
-function Plans () {
+function Plans (props) {
 
   const [destination, setDestination] = useState('');
   const [start, setStart] = useState('');
@@ -34,9 +34,10 @@ function Plans () {
       .catch( error => console.error(error));
   }
 
+
   return (
     <div>
-        <Title>Make Some Plans</Title>
+      <Title>Make Some Plans</Title>
       <Form>
         <span>  ✈️Destination✈️
           <input type='text' placeholder='Where to?'

@@ -14,7 +14,7 @@ const Top = styled.div`
 function usePageStatus (clickedPage) {
 
   const [country, setCountry]  = useState([]);
-  const [input, setInput]  = useState([]);
+  const [type, setType]  = useState([]);
 
   useEffect( () => {
     axios.get('/plans')
@@ -55,7 +55,7 @@ function usePageStatus (clickedPage) {
   }, [country]);
 
   function handleSubmit (evt) {
-    axios.post('/past', {country: input})
+    axios.post('/past', {country: type})
       .then(result => console.log(result))
       .catch( error => console.error(error));
   }
@@ -64,7 +64,7 @@ function usePageStatus (clickedPage) {
   if (clickedPage === 'plans') {
     return (
       <div>
-        <Plans/>
+        <Plans set={setType}/>
         <Itineraries/>
       </div>
     );
@@ -75,9 +75,9 @@ function usePageStatus (clickedPage) {
       <div className='past'>
         <p>I have been to...</p>
         <form>
-          <input type='text' placeholder='🌎Country🌎?'
-            value = {input}
-            onChange={e => setCountry(e.target.value)}>
+          <input type='text' placeholder='Country?'
+            value = {type}
+            onChange={e => setType(e.target.value)}>
           </input>
           <button type='submit' onClick={handleSubmit}>Add</button>
         </form>
