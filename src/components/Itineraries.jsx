@@ -85,7 +85,6 @@ function Itineraries () {
   function getList() {
     return (
       <div>
-        All your trips
         <Container>
           <Title>
             <p>Destination</p>

@@ -44,22 +44,22 @@ function Plans () {
             onChange={e => setDestination(e.target.value)}>
           </input>
         </span>
-        {/* <span>  📅Dates📅
+        <span>  📅Dates📅
           <input type='text' placeholder='When? YY/MM/DD'
             value={start}
             onChange={e => setStart(e.target.value)}>
-          </input> */}
-            {/* to
+          </input>
+            to
           <input type='text' placeholder='When? YY/MM/DD'
             value={end}
             onChange={e => setEnd(e.target.value)}>
           </input>
-        </span> */}
+        </span>
         {/* <span>  Itinerary
           <input type='text' placeholder='Upload your e-ticket'>
           </input>
         </span> */}
-      <Button type='submit' onClick={handleSubmit}>Let's Go!</Button>
+        <Button type='submit' onClick={handleSubmit}>Let's Go!</Button>
       </Form>
     </div>
   );
