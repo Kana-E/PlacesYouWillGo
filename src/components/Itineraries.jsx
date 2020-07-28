@@ -57,7 +57,6 @@ function Itineraries () {
     axios.get('/plans')
       .then( result => {
         setList(result.data);
-        // consol?e.log(list)
       })
       .catch(error => console.log(error));
   }, [list] );
