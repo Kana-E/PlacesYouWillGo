@@ -11,7 +11,7 @@ const Container = styled.div`
   background-color: antiquewhite;
 `;
 
-const Title = styled.div`
+const Name = styled.div`
   display: grid;
   grid-template-columns: 24% 24% 4% 24% 24%;
   width: 1000px;
@@ -50,7 +50,7 @@ const End = styled.div`
   display: flex;
   -webkit-font-smoothing: antialiased;
 `;
-const Button = styled.button`
+const Buttons = styled.button`
   color: #91bea5;
   background-color: antiquewhite;
   font-family: monospace;
@@ -63,11 +63,18 @@ function Itineraries () {
   const [list, setList] = useState([]);
 
   useEffect( () => {
+    let ignore = false;
+
     axios.get('/plans')
       .then( result => {
-        setList(result.data);
+        if (!ignore) {
+          setList(result.data);
+        }
       })
       .catch(error => console.log(error));
+
+    return () => ignore = true;
+
   }, [list] );
 
 
@@ -86,13 +93,13 @@ function Itineraries () {
     return (
       <div>
         <Container>
-          <Title>
+          <Name>
             <p>Destination</p>
             <p>From</p>
             <p>to</p>
             <p>Till</p>
             <p>✈️</p>
-          </Title>
+          </Name>
           <div>
             {list.map(item => (
               <div>
@@ -107,8 +114,8 @@ function Itineraries () {
                   <End key={item.end}>
                     {item.end}
                   </End>
-                  <Button value={item.id} onClick={handleDelete}> x Delete</Button>
-                  <Flights key={item.destination} prop={item}/>
+                  <Buttons value={item.id} onClick={handleDelete}> x Delete</Buttons>
+                  <Flights prop={item}/>
                 </Item>
               </div>
             ))}

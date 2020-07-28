@@ -27,6 +27,8 @@ function Flights(props) {
   var activity = [];
 
   useEffect( () => {
+    let ignore = false;
+
     axios.get(`https://tripadvisor1.p.rapidapi.com/locations/search?location_id=1&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query=${props.prop.destination}`, {
       'method': 'GET',
       'headers': {
@@ -62,11 +64,18 @@ function Flights(props) {
         }
         return array;
       })
-      .then( activity => setAttractions(activity))
+      .then( activity => {
+        if (!ignore) {
+          setAttractions(activity);
+        }
+      })
       .catch(err => {
         console.log(err);
       });
-  }, [props.destination]);
+
+    // return () => ignore = true;
+
+  }, []);
 
 
   if (attractions[0] === undefined) {

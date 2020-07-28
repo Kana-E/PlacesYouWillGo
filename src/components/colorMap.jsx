@@ -4,61 +4,59 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 
-
 function GoogleMap(props) {
 
-  const[country, setCountry] = useState([['Country', 'Have Been?']]);
+  const[country, setCountry] = useState(props.country);
 
-  axios.get('/plans')
-    .then(result => {
-      var plans = result.data;
-      var wishList = [];
-      for (var i = 0; i < plans.length; i++) {
-        wishList.push([plans[i].destination, 0]);
-      }
-      console.log(wishList)
-      return wishList;
-    })
-    .then(wishList => {
-      var list = country
-      for (var i = 0; i < wishList.length; i++) {
-        list.push(wishList[i]);
-      }
-      setCountry(list);
-    });
+  // axios.get('/plans')
+  //   .then(result => {
+  //     var plans = result.data;
+  //     var wishList = [];
+  //     for (var i = 0; i < plans.length; i++) {
+  //       wishList.push([plans[i].destination, 0]);
+  //     }
+  //     console.log(wishList)
+  //     return wishList;
+  //   })
+  //   .then(wishList => {
+  //     var list = country
+  //     for (var i = 0; i < wishList.length; i++) {
+  //       list.push(wishList[i]);
+  //     }
+  //     setCountry(list);
+  //   });
 
-  axios.get('/past')
-    .then(result => {
-      console.log(result.data)
-      var countries = [];
-      for (var i = 0; i < result.data.length; i++) {
-        countries.push(result.data[i].countries);
-      }
-      return countries;
-    })
-    .then( countries => {
-      var list = country;
-      for (var i = 0; i < countries.length; i++) {
-        list.push([countries[i], 100]);
-      }
-      setCountry(list);
-    })
-    .catch(err => console.log(err))
+  // axios.get('/past')
+  //   .then(result => {
+  //     console.log(result.data)
+  //     var countries = [];
+  //     for (var i = 0; i < result.data.length; i++) {
+  //       countries.push(result.data[i].countries);
+  //     }
+  //     return countries;
+  //   })
+  //   .then( countries => {
+  //     var list = country;
+  //     for (var i = 0; i < countries.length; i++) {
+  //       list.push([countries[i], 100]);
+  //     }
+  //     setCountry(list);
+  //   })
+  //   .catch(err => console.log(err))
 
-
-  useEffect( () => {
-    console.log(country)
+  // useEffect( () => {
     google.charts.load( 'current', {
       'packages':['geochart'],
       // Note: you will need to get a mapsApiKey for your project.
       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-    });
+    })
+    // );
 
     google.charts.setOnLoadCallback(drawRegionsMap);
 
     function drawRegionsMap() {
-
+      console.log(country)
       var data = google.visualization.arrayToDataTable(country /* [
         ['Country', 'HaveBeen?'],
         ['Germany', 100],
@@ -80,7 +78,7 @@ function GoogleMap(props) {
       chart.draw(data, options);
     }
 
-  }, []);
+  // }, [props.country]);
 
   return null;
 }

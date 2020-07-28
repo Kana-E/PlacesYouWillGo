@@ -14,10 +14,48 @@ const Top = styled.div`
 function usePageStatus (clickedPage) {
 
   const [country, setCountry]  = useState([]);
+  const [input, setInput]  = useState([]);
 
+  useEffect( () => {
+    axios.get('/plans')
+      .then(result => {
+        var plans = result.data;
+        var wishList = [];
+        for (var i = 0; i < plans.length; i++) {
+          wishList.push([plans[i].destination, 0]);
+        }
+        return wishList;
+      })
+      .then(wishList => {
+        var list = country
+        for (var i = 0; i < wishList.length; i++) {
+          list.push(wishList[i]);
+        }
+        setCountry(list);
+      });
+
+    axios.get('/past')
+      .then(result => {
+        var countries = [];
+        for (var i = 0; i < result.data.length; i++) {
+          countries.push(result.data[i].countries);
+        }
+        return countries;
+      })
+      .then( countries => {
+        var list = country;
+        for (var i = 0; i < countries.length; i++) {
+          list.push([countries[i], 100]);
+        }
+        list.unshift(['Country', 'Have Been?']);
+        setCountry(list);
+      })
+      .catch(err => console.log(err));
+
+  }, [country]);
 
   function handleSubmit (evt) {
-    axios.post('/past', {country: country})
+    axios.post('/past', {country: input})
       .then(result => console.log(result))
       .catch( error => console.error(error));
   }
@@ -38,7 +76,7 @@ function usePageStatus (clickedPage) {
         <p>I have been to...</p>
         <form>
           <input type='text' placeholder='🌎Country🌎?'
-            value = {country}
+            value = {input}
             onChange={e => setCountry(e.target.value)}>
           </input>
           <button type='submit' onClick={handleSubmit}>Add</button>
