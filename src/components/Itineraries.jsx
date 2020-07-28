@@ -8,6 +8,17 @@ const Container = styled.div`
   border-color: lightsteelblue;
   -webkit-font-smoothing: antialiased;
   width: 1000px;
+  background-color: antiquewhite;
+`;
+
+const Title = styled.div`
+  display: grid;
+  grid-template-columns: 24% 24% 4% 24% 24%;
+  width: 1000px;
+  height: 30px;
+  align-content: center;
+  text-align: center;
+  background-color: lightseagreen;
 `;
 
 const Item = styled.div`
@@ -19,34 +30,32 @@ const Item = styled.div`
 `;
 
 const Destination = styled.div`
-  background-color: teal;
   justify-content: center;
   display: flex;
   -webkit-font-smoothing: antialiased;
 `;
 const Start = styled.div`
-  background-color: green;
   justify-content: center;
   display: flex;
   -webkit-font-smoothing: antialiased;
 `;
 const Mid = styled.div`
-  background-color: teal;
   justify-content: center;
   display: flex;
   -webkit-font-smoothing: antialiased;
 `;
 
 const End = styled.div`
-  background-color: pink;
   justify-content: center;
   display: flex;
   -webkit-font-smoothing: antialiased;
 `;
 const Button = styled.button`
-  background-color: blue;
-  color: lightskyblue;
-  -webkit-font-smoothing: antialiased;
+  color: #91bea5;
+  background-color: antiquewhite;
+  font-family: monospace;
+  font-size: x-large;
+  border: antiquewhite;
 `;
 
 
@@ -78,22 +87,31 @@ function Itineraries () {
       <div>
         All your trips
         <Container>
+          <Title>
+            <p>Destination</p>
+            <p>From</p>
+            <p>to</p>
+            <p>Till</p>
+            <p>✈️</p>
+          </Title>
           <div>
             {list.map(item => (
-              <Item>
-                <Destination key={item.destination + item.id}>
-                  {item.destination}
-                </Destination>
-                <Start key={item.start}>
-                  {item.start}
-                </Start>
-                <Mid>to</Mid>
-                <End key={item.end}>
-                  {item.end}
-                </End>
-                <Button value={item.id} onClick={handleDelete}> x Delete</Button>
-                <Flights key={item.destination} prop={item}/>
-              </Item>
+              <div>
+                <Item>
+                  <Destination key={item.destination + item.id}>
+                    {item.destination}
+                  </Destination>
+                  <Start key={item.start}>
+                    {item.start}
+                  </Start>
+                  <Mid>to</Mid>
+                  <End key={item.end}>
+                    {item.end}
+                  </End>
+                  <Button value={item.id} onClick={handleDelete}> x Delete</Button>
+                  <Flights key={item.destination} prop={item}/>
+                </Item>
+              </div>
             ))}
           </div>
         </Container>

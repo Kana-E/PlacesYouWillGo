@@ -3,6 +3,8 @@ body {
   flex-flow: column;
   display: flex;
   align-items: center;
+  font-family: monospace;
+  font-size: x-large;
 }
 
 h1 {
@@ -25,9 +27,12 @@ div.past{
   flex-flow: row;
   align-items: baseline;
   padding-left: 5%;
+  font-family: monospace;
+  font-size: x-large;
 }
 
 p {
-  font-family: 'Exo 2', sans-serif;
+  font-family: monospace;
+  font-size: xx-large;
   margin-right: 1%;
 }

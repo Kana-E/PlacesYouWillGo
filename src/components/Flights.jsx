@@ -4,7 +4,7 @@ import axios from 'axios';
 import cors from 'cors';
 
 const Attraction = styled.div`
-  background-color: lightblue;
+  background-color: #f0e7c2;
   width: 1000px;
 `;
 const Name = styled.div`

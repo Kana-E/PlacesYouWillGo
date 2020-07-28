@@ -4,11 +4,20 @@ import axios from 'axios';
 
 const Title = styled.div`
   background-color: lightseagreen;
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 5%;
 `;
 
 const Form = styled.div`
+  margin-bottom:2%;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
+  background-color: antiquewhite;
+`;
+
+const Button = styled.button`
+  margin-left: 1%;
 `;
 
 
@@ -27,7 +36,7 @@ function Plans () {
 
   return (
     <div>
-      <div>Make Some Plans</div>
+        <Title>Make Some Plans</Title>
       <Form>
         <span>  ✈️Destination✈️
           <input type='text' placeholder='Where to?'
@@ -35,23 +44,23 @@ function Plans () {
             onChange={e => setDestination(e.target.value)}>
           </input>
         </span>
-        <span>  📅Dates📅
+        {/* <span>  📅Dates📅
           <input type='text' placeholder='When? YY/MM/DD'
             value={start}
             onChange={e => setStart(e.target.value)}>
-          </input>
-            to
+          </input> */}
+            {/* to
           <input type='text' placeholder='When? YY/MM/DD'
             value={end}
             onChange={e => setEnd(e.target.value)}>
           </input>
-        </span>
+        </span> */}
         {/* <span>  Itinerary
           <input type='text' placeholder='Upload your e-ticket'>
           </input>
         </span> */}
+      <Button type='submit' onClick={handleSubmit}>Let's Go!</Button>
       </Form>
-      <button type='submit' onClick={handleSubmit}>Let's Go!</button>
     </div>
   );
 }

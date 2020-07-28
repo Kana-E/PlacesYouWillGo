@@ -37,11 +37,11 @@ function usePageStatus (clickedPage) {
       <div className='past'>
         <p>I have been to...</p>
         <form>
-          <input type='text' placeholder='Country?'
+          <input type='text' placeholder='🌎Country🌎?'
             value = {country}
             onChange={e => setCountry(e.target.value)}>
           </input>
-          <button type='submit' onClick={handleSubmit}>post</button>
+          <button type='submit' onClick={handleSubmit}>Add</button>
         </form>
         <GoogleMap country={country}/>
       </div>
