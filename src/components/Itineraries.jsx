@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Flights from './Flights.jsx';
 
 const Container = styled.div`
   border: solid 0.5px;
   border-color: lightsteelblue;
   -webkit-font-smoothing: antialiased;
+  width: 1000px;
 `;
 
 const Item = styled.div`
@@ -80,7 +82,7 @@ function Itineraries () {
           <div>
             {list.map(item => (
               <Item>
-                <Destination key={item.destination}>
+                <Destination key={item.destination + item.id}>
                   {item.destination}
                 </Destination>
                 <Start key={item.start}>
@@ -91,6 +93,7 @@ function Itineraries () {
                   {item.end}
                 </End>
                 <Button value={item.id} onClick={handleDelete}> x Delete</Button>
+                <Flights key={item.destination} prop={item}/>
               </Item>
             ))}
           </div>

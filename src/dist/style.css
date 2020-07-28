@@ -1,6 +1,7 @@
 h1 {
   font-family: 'Exo 2', sans-serif;
   background-color: #b7e3e4;
+  width: 1000px;
 
 }
 
@@ -8,6 +9,7 @@ div.menu {
   display: flex;
   justify-content: space-around;
   background-color: mistyrose;
+  width: 1000px;
 }
 
 #regions_div {
