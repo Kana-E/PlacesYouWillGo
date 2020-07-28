@@ -41,7 +41,16 @@ Plans.init({
 Plans.sync()
   .catch( err => console.error(err));
 
+class Past extends Model {}
+
+Past.init({
+  countries: Sequelize.STRING
+}, { sequelize, moduelName: 'past'});
+
+Past.sync()
+  .catch( err => console.error(err));
 
 
 module.exports.sequelize = sequelize;
 module.exports.Plans = Plans;
+module.exports.Past = Past;

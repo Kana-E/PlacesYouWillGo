@@ -17,4 +17,8 @@ app.get('/plans', query.getTrip);
 app.post('/plans', query.postTrip);
 app.patch('/plans', query.deleteTrip);
 
+
+app.get('/past', query.getCountry);
+app.post('/past', query.postCountry);
+
 app.listen(port, () => console.log(`App listening on port ${port}`));

@@ -30,6 +30,24 @@ var deleteTrip = (req, res) => {
     .catch(err => console.err(error));
 };
 
+
+var getCountry = (req, res) => {
+  sequelize.Past.findAll()
+    .then(result => res.send(result))
+    .catch(error => console.log(error));
+};
+
+
+var postCountry = (req, res) => {
+  var past = req.body;
+  sequelize.Past.create({countries: past.country})
+    .then( () => res.send('Success!') )
+    .catch( err => console.error(err));
+};
+
+
 module.exports.postTrip = postTrip;
 module.exports.getTrip = getTrip;
 module.exports.deleteTrip = deleteTrip;
+module.exports.postCountry = postCountry;
+module.exports.getCountry = getCountry;

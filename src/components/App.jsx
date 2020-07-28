@@ -5,13 +5,22 @@ import GoogleMap from './colorMap.jsx';
 import Itineraries from './Itineraries.jsx';
 import Memories from './Memories.jsx';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Top = styled.div`
   background-color: #91bea5;
 `;
 
 function usePageStatus (clickedPage) {
-  // const pageStatus = usePageStatus(clickedPage);
+
+  const [country, setCountry]  = useState([]);
+
+
+  function handleSubmit (evt) {
+    axios.post('/past', {country: country})
+      .then(result => console.log(result))
+      .catch( error => console.error(error));
+  }
 
 
   if (clickedPage === 'plans') {
@@ -25,7 +34,17 @@ function usePageStatus (clickedPage) {
     return <Memories />;
   } else if (clickedPage === 'top') {
     return (
-      <GoogleMap />
+      <div>
+        <p>I have been to...</p>
+        <form>
+          <input type='text' placeholder='Country?'
+            value = {country}
+            onChange={e => setCountry(e.target.value)}>
+          </input>
+          <button type='submit' onClick={handleSubmit}>post</button>
+        </form>
+        <GoogleMap country={country}/>
+      </div>
     );
   }
 
