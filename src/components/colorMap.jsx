@@ -8,56 +8,19 @@ function GoogleMap(props) {
 
   const[country, setCountry] = useState(props.country);
 
-  // axios.get('/plans')
-  //   .then(result => {
-  //     var plans = result.data;
-  //     var wishList = [];
-  //     for (var i = 0; i < plans.length; i++) {
-  //       wishList.push([plans[i].destination, 0]);
-  //     }
-  //     console.log(wishList)
-  //     return wishList;
-  //   })
-  //   .then(wishList => {
-  //     var list = country
-  //     for (var i = 0; i < wishList.length; i++) {
-  //       list.push(wishList[i]);
-  //     }
-  //     setCountry(list);
-  //   });
+  google.charts.load( 'current', {
+    'packages':['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+  })
 
-  // axios.get('/past')
-  //   .then(result => {
-  //     console.log(result.data)
-  //     var countries = [];
-  //     for (var i = 0; i < result.data.length; i++) {
-  //       countries.push(result.data[i].countries);
-  //     }
-  //     return countries;
-  //   })
-  //   .then( countries => {
-  //     var list = country;
-  //     for (var i = 0; i < countries.length; i++) {
-  //       list.push([countries[i], 100]);
-  //     }
-  //     setCountry(list);
-  //   })
-  //   .catch(err => console.log(err))
 
-  // useEffect( () => {
-    google.charts.load( 'current', {
-      'packages':['geochart'],
-      // Note: you will need to get a mapsApiKey for your project.
-      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-    })
-    // );
+  google.charts.setOnLoadCallback(drawRegionsMap);
 
-    google.charts.setOnLoadCallback(drawRegionsMap);
-
-    function drawRegionsMap() {
-      console.log(country)
-      var data = google.visualization.arrayToDataTable(country /* [
+  function drawRegionsMap() {
+    console.log(country)
+    var data = google.visualization.arrayToDataTable(country /* [
         ['Country', 'HaveBeen?'],
         ['Germany', 100],
         ['United States', 100],
@@ -68,15 +31,15 @@ function GoogleMap(props) {
         ['Japan', 100]
       ] */);
 
-      var options = {
-        colorAxis: {colors: ['palevioletred', 'royalblue', 'mediumseagreen']},
-        backgroundColor: '#b7e4df'
-      };
+    var options = {
+      colorAxis: {colors: ['palevioletred', 'royalblue', 'mediumseagreen']},
+      backgroundColor: '#b7e4df'
+    };
 
-      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
-      chart.draw(data, options);
-    }
+    chart.draw(data, options);
+  }
 
   // }, [props.country]);
 

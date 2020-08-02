@@ -27,7 +27,6 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-simple-maps": "^2.1.2",
     "sequelize": "^6.3.3",
     "styled-components": "^5.1.1"
   },

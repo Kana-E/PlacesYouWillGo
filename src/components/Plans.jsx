@@ -35,6 +35,7 @@ function Plans (props) {
   }
 
 
+
   return (
     <div>
       <Title>Make Some Plans</Title>

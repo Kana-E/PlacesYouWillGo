@@ -64,7 +64,7 @@ function usePageStatus (clickedPage) {
   if (clickedPage === 'plans') {
     return (
       <div>
-        <Plans set={setType}/>
+        <Plans set={usePageStatus}/>
         <Itineraries/>
       </div>
     );
