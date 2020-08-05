@@ -17,6 +17,7 @@
 ### Start
 `npm run start`
 
+==Plans page is under construction==
 
 <img width="872" alt="Screen Shot 2020-07-28 at 10 08 22 PM" src="https://user-images.githubusercontent.com/63311571/89439994-023e1a00-d719-11ea-98f3-c726f88dcc61.png">
 
